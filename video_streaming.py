@@ -552,6 +552,7 @@ def save_alert_to_database(buffer, timestamp, image_id = None):
             "status": "critical",
             "confidence": 0,
             "is_checked": False,
+            "camera_imou_id": "9A05547PCGF66FD", # fixed code first. we only have 1 camera :))
             "note": f"The patient got convulsion at {first_timestamp}",
             "threadId": None
         }

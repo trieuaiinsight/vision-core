@@ -1,0 +1,603 @@
+2025-06-18 14:34:28,511 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:29,798 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:29,908 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:30,710 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:32,378 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:34:32,383 - INFO - Created new thread with ID: thread_JiI4gqbyulZndxCnmrqZvIQo for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:32,769 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:34:32,776 - INFO - Created new thread with ID: thread_iufLIGdU6dKrqBDeOIUsq4hV for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:33,398 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:34,748 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:34:34,749 - INFO - Uploaded file with ID: file-K99VQEgEJU5JwS9i49kSLB (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:34,864 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:34:34,866 - INFO - Uploaded file with ID: file-8iyQkmoPgyQmGEiJ48jxk3 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:36,183 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_JiI4gqbyulZndxCnmrqZvIQo/messages "HTTP/1.1 200 OK"
+2025-06-18 14:34:36,199 - INFO - Created message in thread thread_JiI4gqbyulZndxCnmrqZvIQo with image file ID: file-8iyQkmoPgyQmGEiJ48jxk3 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:36,421 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:36,456 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:36,578 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_iufLIGdU6dKrqBDeOIUsq4hV/messages "HTTP/1.1 200 OK"
+2025-06-18 14:34:36,586 - INFO - Created message in thread thread_iufLIGdU6dKrqBDeOIUsq4hV with image file ID: file-K99VQEgEJU5JwS9i49kSLB (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:37,530 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:38,070 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_JiI4gqbyulZndxCnmrqZvIQo/runs "HTTP/1.1 200 OK"
+2025-06-18 14:34:38,080 - INFO - Started run with ID: run_LRZQQKzplPbcD0WJ2ZdWslgs for thread thread_JiI4gqbyulZndxCnmrqZvIQo (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:38,285 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_iufLIGdU6dKrqBDeOIUsq4hV/runs "HTTP/1.1 200 OK"
+2025-06-18 14:34:38,291 - INFO - Started run with ID: run_QnIzcbZkk6rlBofqwR7VFmZh for thread thread_iufLIGdU6dKrqBDeOIUsq4hV (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:38,607 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:34:38,612 - INFO - Created new thread with ID: thread_O70PENkvqo261UDqFjJSWMAo for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:38,648 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_JiI4gqbyulZndxCnmrqZvIQo/runs/run_LRZQQKzplPbcD0WJ2ZdWslgs "HTTP/1.1 200 OK"
+2025-06-18 14:34:38,970 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_iufLIGdU6dKrqBDeOIUsq4hV/runs/run_QnIzcbZkk6rlBofqwR7VFmZh "HTTP/1.1 200 OK"
+2025-06-18 14:34:39,692 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:39,766 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:34:39,767 - INFO - Uploaded file with ID: file-UdoYZAgirvn2JAT96ZofUT (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:40,121 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:34:40,127 - INFO - Created new thread with ID: thread_6H0WyO6EZpo1DlTMnF4edual for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:40,520 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_JiI4gqbyulZndxCnmrqZvIQo/runs/run_LRZQQKzplPbcD0WJ2ZdWslgs "HTTP/1.1 200 OK"
+2025-06-18 14:34:40,692 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_O70PENkvqo261UDqFjJSWMAo/messages "HTTP/1.1 200 OK"
+2025-06-18 14:34:40,704 - INFO - Created message in thread thread_O70PENkvqo261UDqFjJSWMAo with image file ID: file-UdoYZAgirvn2JAT96ZofUT (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:40,729 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_iufLIGdU6dKrqBDeOIUsq4hV/runs/run_QnIzcbZkk6rlBofqwR7VFmZh "HTTP/1.1 200 OK"
+2025-06-18 14:34:41,067 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:41,191 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:34:41,193 - INFO - Uploaded file with ID: file-AwjcUdFmzNqUV7zU5cDPe8 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:42,098 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_6H0WyO6EZpo1DlTMnF4edual/messages "HTTP/1.1 200 OK"
+2025-06-18 14:34:42,108 - INFO - Created message in thread thread_6H0WyO6EZpo1DlTMnF4edual with image file ID: file-AwjcUdFmzNqUV7zU5cDPe8 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:42,185 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_JiI4gqbyulZndxCnmrqZvIQo/runs/run_LRZQQKzplPbcD0WJ2ZdWslgs "HTTP/1.1 200 OK"
+2025-06-18 14:34:42,195 - INFO - Run run_LRZQQKzplPbcD0WJ2ZdWslgs completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:42,336 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_iufLIGdU6dKrqBDeOIUsq4hV/runs/run_QnIzcbZkk6rlBofqwR7VFmZh "HTTP/1.1 200 OK"
+2025-06-18 14:34:42,378 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_O70PENkvqo261UDqFjJSWMAo/runs "HTTP/1.1 200 OK"
+2025-06-18 14:34:42,386 - INFO - Started run with ID: run_Embz3evIYthuwky9krPymlEc for thread thread_O70PENkvqo261UDqFjJSWMAo (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:42,621 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:42,647 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_JiI4gqbyulZndxCnmrqZvIQo/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:34:42,806 - INFO - Assistant response for image ID 1750181162 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T00:26:02Z",
+  "patient_id": "P026",
+  "behavior": "sitting",
+  "status": "normal",
+  "note": "The patient is sitting in a chair."
+}
+2025-06-18 14:34:43,303 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_O70PENkvqo261UDqFjJSWMAo/runs/run_Embz3evIYthuwky9krPymlEc "HTTP/1.1 200 OK"
+2025-06-18 14:34:43,304 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_6H0WyO6EZpo1DlTMnF4edual/runs "HTTP/1.1 200 OK"
+2025-06-18 14:34:43,305 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:34:43,310 - INFO - Created new thread with ID: thread_rcTIIC41NtzdR5HTPvY8cgXL for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:43,312 - INFO - Started run with ID: run_DeEAY6yxEJQZ80ShGpeXQDwx for thread thread_6H0WyO6EZpo1DlTMnF4edual (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:43,671 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:44,466 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_6H0WyO6EZpo1DlTMnF4edual/runs/run_DeEAY6yxEJQZ80ShGpeXQDwx "HTTP/1.1 200 OK"
+2025-06-18 14:34:44,466 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:44,471 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_iufLIGdU6dKrqBDeOIUsq4hV/runs/run_QnIzcbZkk6rlBofqwR7VFmZh "HTTP/1.1 200 OK"
+2025-06-18 14:34:44,471 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:34:44,474 - INFO - Run run_QnIzcbZkk6rlBofqwR7VFmZh completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:44,712 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750181162 "HTTP/2 200 OK"
+2025-06-18 14:34:44,713 - INFO - Image 1750181162 marked as processed
+2025-06-18 14:34:44,969 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_O70PENkvqo261UDqFjJSWMAo/runs/run_Embz3evIYthuwky9krPymlEc "HTTP/1.1 200 OK"
+2025-06-18 14:34:45,404 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_iufLIGdU6dKrqBDeOIUsq4hV/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:34:45,406 - INFO - Assistant response for image ID 1750181162 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T00:26:02Z",
+  "patient_id": "P026",
+  "behavior": "none",
+  "status": "not in the room",
+  "note": "The patient is not present in the hospital room"
+}
+2025-06-18 14:34:45,885 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:34:45,886 - INFO - Uploaded file with ID: file-2g8gyqEAEMhgscKTGdAW4S (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:46,809 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_6H0WyO6EZpo1DlTMnF4edual/runs/run_DeEAY6yxEJQZ80ShGpeXQDwx "HTTP/1.1 200 OK"
+2025-06-18 14:34:46,810 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_rcTIIC41NtzdR5HTPvY8cgXL/messages "HTTP/1.1 200 OK"
+2025-06-18 14:34:46,810 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_O70PENkvqo261UDqFjJSWMAo/runs/run_Embz3evIYthuwky9krPymlEc "HTTP/1.1 200 OK"
+2025-06-18 14:34:46,810 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:34:46,811 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:46,812 - INFO - Run run_DeEAY6yxEJQZ80ShGpeXQDwx completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:46,813 - INFO - Run run_Embz3evIYthuwky9krPymlEc completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:46,816 - INFO - Created new thread with ID: thread_vPLzOro69SQiy2hBZMaOFxXO for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:46,820 - INFO - Created message in thread thread_rcTIIC41NtzdR5HTPvY8cgXL with image file ID: file-2g8gyqEAEMhgscKTGdAW4S (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:47,250 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:34:47,252 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:47,292 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_6H0WyO6EZpo1DlTMnF4edual/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:34:47,294 - INFO - Assistant response for image ID 1750181162 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T00:26:02Z",
+  "patient_id": "P026",
+  "behavior": "sitting",
+  "status": "normal",
+  "note": "The patient is sitting in the room."
+}
+2025-06-18 14:34:47,317 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_O70PENkvqo261UDqFjJSWMAo/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:34:47,319 - INFO - Assistant response for image ID 1750181162 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T00:26:02Z",
+  "patient_id": "P026",
+  "behavior": "sitting",
+  "status": "normal",
+  "note": "The patient is sitting down, likely on the floor."
+}
+2025-06-18 14:34:47,505 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750181162 "HTTP/2 200 OK"
+2025-06-18 14:34:47,506 - INFO - Image 1750181162 marked as processed
+2025-06-18 14:34:48,022 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:34:48,023 - INFO - Uploaded file with ID: file-M9ydT667D5Zp1X7pq1oEg1 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:48,030 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:48,053 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:34:48,269 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:34:48,324 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:34:48,462 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750181162 "HTTP/2 200 OK"
+2025-06-18 14:34:48,463 - INFO - Image 1750181162 marked as processed
+2025-06-18 14:34:48,483 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750181162 "HTTP/2 200 OK"
+2025-06-18 14:34:48,493 - INFO - Image 1750181162 marked as processed
+2025-06-18 14:34:48,772 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_vPLzOro69SQiy2hBZMaOFxXO/messages "HTTP/1.1 200 OK"
+2025-06-18 14:34:48,781 - INFO - Created message in thread thread_vPLzOro69SQiy2hBZMaOFxXO with image file ID: file-M9ydT667D5Zp1X7pq1oEg1 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:48,959 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_rcTIIC41NtzdR5HTPvY8cgXL/runs "HTTP/1.1 200 OK"
+2025-06-18 14:34:48,964 - INFO - Started run with ID: run_KtxMWwe8KtquyRnYFtfXZXOw for thread thread_rcTIIC41NtzdR5HTPvY8cgXL (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:49,818 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_rcTIIC41NtzdR5HTPvY8cgXL/runs/run_KtxMWwe8KtquyRnYFtfXZXOw "HTTP/1.1 200 OK"
+2025-06-18 14:34:50,150 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:50,344 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:51,215 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_vPLzOro69SQiy2hBZMaOFxXO/runs "HTTP/1.1 200 OK"
+2025-06-18 14:34:51,222 - INFO - Started run with ID: run_81rBRpP7mPipyt2NPIeJJCrU for thread thread_vPLzOro69SQiy2hBZMaOFxXO (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:51,964 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_vPLzOro69SQiy2hBZMaOFxXO/runs/run_81rBRpP7mPipyt2NPIeJJCrU "HTTP/1.1 200 OK"
+2025-06-18 14:34:51,964 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_rcTIIC41NtzdR5HTPvY8cgXL/runs/run_KtxMWwe8KtquyRnYFtfXZXOw "HTTP/1.1 200 OK"
+2025-06-18 14:34:52,800 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:52,815 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:52,979 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:53,593 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_rcTIIC41NtzdR5HTPvY8cgXL/runs/run_KtxMWwe8KtquyRnYFtfXZXOw "HTTP/1.1 200 OK"
+2025-06-18 14:34:53,598 - INFO - Run run_KtxMWwe8KtquyRnYFtfXZXOw completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:34:54,056 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_vPLzOro69SQiy2hBZMaOFxXO/runs/run_81rBRpP7mPipyt2NPIeJJCrU "HTTP/1.1 200 OK"
+2025-06-18 14:34:54,125 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:54,126 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:34:55,063 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_rcTIIC41NtzdR5HTPvY8cgXL/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:34:55,065 - INFO - Assistant response for image ID 1750181162 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T00:26:02Z",
+  "patient_id": "P026",
+  "behavior": "standing",
+  "status": "normal",
+  "note": "The patient is standing."
+}
+2025-06-18 14:34:59,682 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:29,471 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:31,835 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:35,757 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:35,758 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:37,470 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:38,811 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:41,272 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:41,290 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:41,438 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:43,136 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:44,327 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:45,652 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:46,836 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:46,863 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:46,886 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:48,991 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:48,997 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:49,987 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:51,423 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:52,393 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:52,411 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:52,488 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:52,519 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:54,518 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:54,518 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:54,782 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:55,544 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:56,869 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:57,919 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:58,051 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:58,154 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:58,180 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:58,197 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:59,838 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:36:59,949 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:37:00,086 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:37:01,024 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:37:01,559 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:37:02,246 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:39:40,798 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:39:42,358 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:39:45,410 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:39:45,415 - INFO - Created new thread with ID: thread_olQyoN42PVf8vEFFGKcBeWva for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:39:46,409 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:39:46,412 - INFO - Uploaded file with ID: file-MhbEdwcxsCQVc2Z2xarc79 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:39:47,202 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_olQyoN42PVf8vEFFGKcBeWva/messages "HTTP/1.1 200 OK"
+2025-06-18 14:39:47,212 - INFO - Created message in thread thread_olQyoN42PVf8vEFFGKcBeWva with image file ID: file-MhbEdwcxsCQVc2Z2xarc79 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:39:48,605 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_olQyoN42PVf8vEFFGKcBeWva/runs "HTTP/1.1 200 OK"
+2025-06-18 14:39:48,610 - INFO - Started run with ID: run_Ino4njM4Q9eKt4GL8D1EyxLo for thread thread_olQyoN42PVf8vEFFGKcBeWva (Camera: 9A05547PCGF66FD)
+2025-06-18 14:39:49,213 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_olQyoN42PVf8vEFFGKcBeWva/runs/run_Ino4njM4Q9eKt4GL8D1EyxLo "HTTP/1.1 200 OK"
+2025-06-18 14:39:50,930 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_olQyoN42PVf8vEFFGKcBeWva/runs/run_Ino4njM4Q9eKt4GL8D1EyxLo "HTTP/1.1 200 OK"
+2025-06-18 14:39:52,471 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_olQyoN42PVf8vEFFGKcBeWva/runs/run_Ino4njM4Q9eKt4GL8D1EyxLo "HTTP/1.1 200 OK"
+2025-06-18 14:39:54,157 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_olQyoN42PVf8vEFFGKcBeWva/runs/run_Ino4njM4Q9eKt4GL8D1EyxLo "HTTP/1.1 200 OK"
+2025-06-18 14:39:54,159 - INFO - Run run_Ino4njM4Q9eKt4GL8D1EyxLo completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:39:54,553 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_olQyoN42PVf8vEFFGKcBeWva/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:39:54,556 - INFO - Assistant response for image ID 1750228756 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:39:15Z",
+  "patient_id": "P026",
+  "behavior": "standing",
+  "status": "normal",
+  "note": "The patient is standing."
+}
+2025-06-18 14:39:55,066 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:39:55,340 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:39:55,635 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750228756 "HTTP/2 200 OK"
+2025-06-18 14:39:55,636 - INFO - Image 1750228756 marked as processed
+2025-06-18 14:40:01,244 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:40:02,851 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:40:04,776 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:40:04,777 - INFO - Created new thread with ID: thread_SF3r5eOTThxjE6kIBW8vVRTE for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:40:05,568 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:40:05,569 - INFO - Uploaded file with ID: file-HBTmDhEL4fvoThtwTr4jf9 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:40:06,862 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_SF3r5eOTThxjE6kIBW8vVRTE/messages "HTTP/1.1 200 OK"
+2025-06-18 14:40:06,863 - INFO - Created message in thread thread_SF3r5eOTThxjE6kIBW8vVRTE with image file ID: file-HBTmDhEL4fvoThtwTr4jf9 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:40:08,969 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_SF3r5eOTThxjE6kIBW8vVRTE/runs "HTTP/1.1 200 OK"
+2025-06-18 14:40:08,971 - INFO - Started run with ID: run_w0TaeSoFsnscHhAS92E8mjJl for thread thread_SF3r5eOTThxjE6kIBW8vVRTE (Camera: 9A05547PCGF66FD)
+2025-06-18 14:40:09,608 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_SF3r5eOTThxjE6kIBW8vVRTE/runs/run_w0TaeSoFsnscHhAS92E8mjJl "HTTP/1.1 200 OK"
+2025-06-18 14:40:11,180 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_SF3r5eOTThxjE6kIBW8vVRTE/runs/run_w0TaeSoFsnscHhAS92E8mjJl "HTTP/1.1 200 OK"
+2025-06-18 14:40:12,760 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_SF3r5eOTThxjE6kIBW8vVRTE/runs/run_w0TaeSoFsnscHhAS92E8mjJl "HTTP/1.1 200 OK"
+2025-06-18 14:40:12,763 - INFO - Run run_w0TaeSoFsnscHhAS92E8mjJl completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:40:13,208 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_SF3r5eOTThxjE6kIBW8vVRTE/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:40:13,211 - INFO - Assistant response for image ID 1750228795 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:39:55Z",
+  "patient_id": "P026",
+  "behavior": "lying",
+  "status": "critical",
+  "note": "The patient is lying on the floor."
+}
+2025-06-18 14:40:13,592 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:40:13,826 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:40:13,829 - INFO - BEFORE starting video streaming worker - image_id: 1750228795, camera_imou_id: 9A05547PCGF66FD
+2025-06-18 14:40:13,830 - INFO - Found RTSP URL for camera 9A05547PCGF66FD in room room2
+2025-06-18 14:40:13,830 - INFO - Starting video streaming for camera 9A05547PCGF66FD with image_id 1750228795
+2025-06-18 14:40:13,830 - INFO - Paused AI analysis for camera 9A05547PCGF66FD
+2025-06-18 14:40:13,830 - INFO - ABOUT TO START video streaming thread for camera 9A05547PCGF66FD
+2025-06-18 14:40:13,830 - INFO - Video streaming worker STARTED for camera 9A05547PCGF66FD
+2025-06-18 14:40:13,831 - INFO - Video streaming thread STARTED for camera 9A05547PCGF66FD
+2025-06-18 14:40:14,049 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750228795 "HTTP/2 200 OK"
+2025-06-18 14:40:14,053 - INFO - Image 1750228795 marked as processed
+2025-06-18 14:40:16,908 - INFO - EXECUTING command: /Users/macbook/vision-core/.venv310/bin/python /Users/macbook/vision-core/video_streaming.py rtsp://admin:Khoa123456@192.168.3.91:554/cam/realmonitor?channel=1&subtype=1 --image_id 1750228795
+2025-06-18 14:40:16,919 - INFO - subprocess.Popen called successfully, PID: 33068
+2025-06-18 14:40:45,234 - INFO - Video streaming ended for camera 9A05547PCGF66FD with return code: 0
+2025-06-18 14:40:45,237 - INFO - Video streaming ended and AI analysis resumed for camera 9A05547PCGF66FD
+2025-06-18 14:40:50,036 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:40:50,972 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:40:52,433 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:40:52,438 - INFO - Created new thread with ID: thread_1hzbcaTz90aCAGUAS5YXhymh for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:40:54,514 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:40:54,518 - INFO - Uploaded file with ID: file-47PcFcWVsCwkz8jPM4FfBV (Camera: 9A05547PCGF66FD)
+2025-06-18 14:40:55,374 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_1hzbcaTz90aCAGUAS5YXhymh/messages "HTTP/1.1 200 OK"
+2025-06-18 14:40:55,380 - INFO - Created message in thread thread_1hzbcaTz90aCAGUAS5YXhymh with image file ID: file-47PcFcWVsCwkz8jPM4FfBV (Camera: 9A05547PCGF66FD)
+2025-06-18 14:40:56,944 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_1hzbcaTz90aCAGUAS5YXhymh/runs "HTTP/1.1 200 OK"
+2025-06-18 14:40:56,949 - INFO - Started run with ID: run_LQPISEyaitliVUXSUVSPzrMr for thread thread_1hzbcaTz90aCAGUAS5YXhymh (Camera: 9A05547PCGF66FD)
+2025-06-18 14:40:57,568 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_1hzbcaTz90aCAGUAS5YXhymh/runs/run_LQPISEyaitliVUXSUVSPzrMr "HTTP/1.1 200 OK"
+2025-06-18 14:40:59,236 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_1hzbcaTz90aCAGUAS5YXhymh/runs/run_LQPISEyaitliVUXSUVSPzrMr "HTTP/1.1 200 OK"
+2025-06-18 14:41:01,080 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_1hzbcaTz90aCAGUAS5YXhymh/runs/run_LQPISEyaitliVUXSUVSPzrMr "HTTP/1.1 200 OK"
+2025-06-18 14:41:02,778 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_1hzbcaTz90aCAGUAS5YXhymh/runs/run_LQPISEyaitliVUXSUVSPzrMr "HTTP/1.1 200 OK"
+2025-06-18 14:41:02,780 - INFO - Run run_LQPISEyaitliVUXSUVSPzrMr completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:41:03,194 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_1hzbcaTz90aCAGUAS5YXhymh/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:41:03,221 - INFO - Assistant response for image ID 1750228845 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T04:40:45Z",
+  "patient_id": "P026",
+  "behavior": "standing",
+  "status": "normal",
+  "note": "The patient is standing."
+}
+2025-06-18 14:41:03,651 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:41:03,795 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:41:04,028 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750228845 "HTTP/2 200 OK"
+2025-06-18 14:41:04,029 - INFO - Image 1750228845 marked as processed
+2025-06-18 14:41:09,951 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:41:11,523 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:41:12,562 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:41:12,563 - INFO - Created new thread with ID: thread_AubtAG0L7GuQIBfuJPcaLkVn for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:41:13,640 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:41:13,641 - INFO - Uploaded file with ID: file-GbS6yAeAUAPHj37VwCaztY (Camera: 9A05547PCGF66FD)
+2025-06-18 14:41:14,585 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_AubtAG0L7GuQIBfuJPcaLkVn/messages "HTTP/1.1 200 OK"
+2025-06-18 14:41:14,588 - INFO - Created message in thread thread_AubtAG0L7GuQIBfuJPcaLkVn with image file ID: file-GbS6yAeAUAPHj37VwCaztY (Camera: 9A05547PCGF66FD)
+2025-06-18 14:41:16,806 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_AubtAG0L7GuQIBfuJPcaLkVn/runs "HTTP/1.1 200 OK"
+2025-06-18 14:41:16,810 - INFO - Started run with ID: run_gyxkZ9WoDINzhkyhLrkuQtNB for thread thread_AubtAG0L7GuQIBfuJPcaLkVn (Camera: 9A05547PCGF66FD)
+2025-06-18 14:41:17,443 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_AubtAG0L7GuQIBfuJPcaLkVn/runs/run_gyxkZ9WoDINzhkyhLrkuQtNB "HTTP/1.1 200 OK"
+2025-06-18 14:41:19,038 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_AubtAG0L7GuQIBfuJPcaLkVn/runs/run_gyxkZ9WoDINzhkyhLrkuQtNB "HTTP/1.1 200 OK"
+2025-06-18 14:41:20,597 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_AubtAG0L7GuQIBfuJPcaLkVn/runs/run_gyxkZ9WoDINzhkyhLrkuQtNB "HTTP/1.1 200 OK"
+2025-06-18 14:41:20,599 - INFO - Run run_gyxkZ9WoDINzhkyhLrkuQtNB completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:41:21,037 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_AubtAG0L7GuQIBfuJPcaLkVn/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:41:21,041 - INFO - Assistant response for image ID 1750228864 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:44:04Z",
+  "patient_id": "P026",
+  "behavior": "none",
+  "status": "not in the room",
+  "note": "The patient is not present in the hospital room"
+}
+2025-06-18 14:41:21,351 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:41:21,615 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:41:21,875 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750228864 "HTTP/2 200 OK"
+2025-06-18 14:41:21,876 - INFO - Image 1750228864 marked as processed
+2025-06-18 14:41:27,513 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:47:07,759 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:47:09,670 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:47:11,241 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:47:11,250 - INFO - Created new thread with ID: thread_Lh7IFF5grbTAMapmxMQmXkiy for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:47:12,969 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:47:12,969 - INFO - Uploaded file with ID: file-7DGnx3UPaqgxYVXuW8i27X (Camera: 9A05547PCGF66FD)
+2025-06-18 14:47:14,082 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_Lh7IFF5grbTAMapmxMQmXkiy/messages "HTTP/1.1 200 OK"
+2025-06-18 14:47:14,087 - INFO - Created message in thread thread_Lh7IFF5grbTAMapmxMQmXkiy with image file ID: file-7DGnx3UPaqgxYVXuW8i27X (Camera: 9A05547PCGF66FD)
+2025-06-18 14:47:15,897 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_Lh7IFF5grbTAMapmxMQmXkiy/runs "HTTP/1.1 200 OK"
+2025-06-18 14:47:15,902 - INFO - Started run with ID: run_KifHtnf02H8bI15EzTY7UEwt for thread thread_Lh7IFF5grbTAMapmxMQmXkiy (Camera: 9A05547PCGF66FD)
+2025-06-18 14:47:16,577 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_Lh7IFF5grbTAMapmxMQmXkiy/runs/run_KifHtnf02H8bI15EzTY7UEwt "HTTP/1.1 200 OK"
+2025-06-18 14:47:18,186 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_Lh7IFF5grbTAMapmxMQmXkiy/runs/run_KifHtnf02H8bI15EzTY7UEwt "HTTP/1.1 200 OK"
+2025-06-18 14:47:20,015 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_Lh7IFF5grbTAMapmxMQmXkiy/runs/run_KifHtnf02H8bI15EzTY7UEwt "HTTP/1.1 200 OK"
+2025-06-18 14:47:21,644 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_Lh7IFF5grbTAMapmxMQmXkiy/runs/run_KifHtnf02H8bI15EzTY7UEwt "HTTP/1.1 200 OK"
+2025-06-18 14:47:21,646 - INFO - Run run_KifHtnf02H8bI15EzTY7UEwt completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:47:22,113 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_Lh7IFF5grbTAMapmxMQmXkiy/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:47:22,115 - INFO - Assistant response for image ID 1750229227 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:47:07Z",
+  "patient_id": "P026",
+  "behavior": "lying",
+  "status": "critical",
+  "note": "The patient is lying face down on the floor."
+}
+2025-06-18 14:47:22,470 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:47:22,640 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:47:22,641 - INFO - BEFORE starting video streaming worker - image_id: 1750229227, camera_imou_id: 9A05547PCGF66FD
+2025-06-18 14:47:22,641 - INFO - Found RTSP URL for camera 9A05547PCGF66FD in room room2
+2025-06-18 14:47:22,641 - INFO - Starting video streaming for camera 9A05547PCGF66FD with image_id 1750229227
+2025-06-18 14:47:22,641 - INFO - Paused AI analysis for camera 9A05547PCGF66FD
+2025-06-18 14:47:22,641 - INFO - ABOUT TO START video streaming thread for camera 9A05547PCGF66FD
+2025-06-18 14:47:22,641 - INFO - Video streaming worker STARTED for camera 9A05547PCGF66FD
+2025-06-18 14:47:22,641 - INFO - Video streaming thread STARTED for camera 9A05547PCGF66FD
+2025-06-18 14:47:22,865 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229227 "HTTP/2 200 OK"
+2025-06-18 14:47:22,867 - INFO - Image 1750229227 marked as processed
+2025-06-18 14:47:23,541 - INFO - EXECUTING command: /Users/macbook/vision-core/.venv310/bin/python /Users/macbook/vision-core/video_streaming.py rtsp://admin:Khoa123456@192.168.3.91:554/cam/realmonitor?channel=1&subtype=1 --image_id 1750229227
+2025-06-18 14:47:23,548 - INFO - subprocess.Popen called successfully, PID: 35619
+2025-06-18 14:48:45,613 - INFO - Video streaming ended for camera 9A05547PCGF66FD with return code: 0
+2025-06-18 14:48:45,613 - INFO - Video streaming ended and AI analysis resumed for camera 9A05547PCGF66FD
+2025-06-18 14:48:49,008 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:48:53,622 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:48:57,397 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:48:57,398 - INFO - Created new thread with ID: thread_WbXySQirzjCsfFiZkrDN83yX for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:48:58,867 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:48:58,868 - INFO - Uploaded file with ID: file-PNfdZfPBiwQxFcNHnvhCSY (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:01,312 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_WbXySQirzjCsfFiZkrDN83yX/messages "HTTP/1.1 200 OK"
+2025-06-18 14:49:01,313 - INFO - Created message in thread thread_WbXySQirzjCsfFiZkrDN83yX with image file ID: file-PNfdZfPBiwQxFcNHnvhCSY (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:03,611 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_WbXySQirzjCsfFiZkrDN83yX/runs "HTTP/1.1 200 OK"
+2025-06-18 14:49:03,613 - INFO - Started run with ID: run_tGWwPRKnQhu9sCgN53oGDemI for thread thread_WbXySQirzjCsfFiZkrDN83yX (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:05,811 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_WbXySQirzjCsfFiZkrDN83yX/runs/run_tGWwPRKnQhu9sCgN53oGDemI "HTTP/1.1 200 OK"
+2025-06-18 14:49:08,941 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_WbXySQirzjCsfFiZkrDN83yX/runs/run_tGWwPRKnQhu9sCgN53oGDemI "HTTP/1.1 200 OK"
+2025-06-18 14:49:08,942 - INFO - Run run_tGWwPRKnQhu9sCgN53oGDemI completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:10,229 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_WbXySQirzjCsfFiZkrDN83yX/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:49:10,230 - INFO - Assistant response for image ID 1750229327 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:48:47Z",
+  "patient_id": "P026",
+  "behavior": "standing",
+  "status": "normal",
+  "note": "The patient is standing."
+}
+2025-06-18 14:49:11,274 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:49:11,547 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:49:11,976 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229327 "HTTP/2 200 OK"
+2025-06-18 14:49:11,977 - INFO - Image 1750229327 marked as processed
+2025-06-18 14:49:17,525 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:49:19,471 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:49:21,462 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:49:21,463 - INFO - Created new thread with ID: thread_2rCK34u317YXzILzQFit2LHG for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:22,470 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:49:22,471 - INFO - Uploaded file with ID: file-CytG7zDRhX4rYKNSCtwjqD (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:23,172 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_2rCK34u317YXzILzQFit2LHG/messages "HTTP/1.1 200 OK"
+2025-06-18 14:49:23,173 - INFO - Created message in thread thread_2rCK34u317YXzILzQFit2LHG with image file ID: file-CytG7zDRhX4rYKNSCtwjqD (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:24,395 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_2rCK34u317YXzILzQFit2LHG/runs "HTTP/1.1 200 OK"
+2025-06-18 14:49:24,396 - INFO - Started run with ID: run_3HNZbupQBrT7odXRWgH8t4Ak for thread thread_2rCK34u317YXzILzQFit2LHG (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:25,180 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_2rCK34u317YXzILzQFit2LHG/runs/run_3HNZbupQBrT7odXRWgH8t4Ak "HTTP/1.1 200 OK"
+2025-06-18 14:49:27,342 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_2rCK34u317YXzILzQFit2LHG/runs/run_3HNZbupQBrT7odXRWgH8t4Ak "HTTP/1.1 200 OK"
+2025-06-18 14:49:27,343 - INFO - Run run_3HNZbupQBrT7odXRWgH8t4Ak completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:27,928 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_2rCK34u317YXzILzQFit2LHG/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:49:27,929 - INFO - Assistant response for image ID 1750229354 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:49:00Z",
+  "patient_id": "P026",
+  "behavior": "none",
+  "status": "not in the room",
+  "note": "The patient is not present in the hospital room"
+}
+2025-06-18 14:49:29,101 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:49:29,484 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:49:29,899 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229354 "HTTP/2 200 OK"
+2025-06-18 14:49:29,900 - INFO - Image 1750229354 marked as processed
+2025-06-18 14:49:36,786 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:49:40,863 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:49:49,466 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:49:49,468 - INFO - Created new thread with ID: thread_2q306opMXgAoXWvdDZjO5KW1 for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:50,385 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:49:50,392 - INFO - Uploaded file with ID: file-DdHrfz3ZXQo6dQDYBbYxnF (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:51,042 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_2q306opMXgAoXWvdDZjO5KW1/messages "HTTP/1.1 200 OK"
+2025-06-18 14:49:51,045 - INFO - Created message in thread thread_2q306opMXgAoXWvdDZjO5KW1 with image file ID: file-DdHrfz3ZXQo6dQDYBbYxnF (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:52,787 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_2q306opMXgAoXWvdDZjO5KW1/runs "HTTP/1.1 200 OK"
+2025-06-18 14:49:52,788 - INFO - Started run with ID: run_1QWXklcojZaLiA7mLSvuVGcn for thread thread_2q306opMXgAoXWvdDZjO5KW1 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:53,459 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_2q306opMXgAoXWvdDZjO5KW1/runs/run_1QWXklcojZaLiA7mLSvuVGcn "HTTP/1.1 200 OK"
+2025-06-18 14:49:55,109 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_2q306opMXgAoXWvdDZjO5KW1/runs/run_1QWXklcojZaLiA7mLSvuVGcn "HTTP/1.1 200 OK"
+2025-06-18 14:49:56,801 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_2q306opMXgAoXWvdDZjO5KW1/runs/run_1QWXklcojZaLiA7mLSvuVGcn "HTTP/1.1 200 OK"
+2025-06-18 14:49:58,898 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_2q306opMXgAoXWvdDZjO5KW1/runs/run_1QWXklcojZaLiA7mLSvuVGcn "HTTP/1.1 200 OK"
+2025-06-18 14:49:58,898 - INFO - Run run_1QWXklcojZaLiA7mLSvuVGcn completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:49:59,336 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_2q306opMXgAoXWvdDZjO5KW1/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:49:59,337 - INFO - Assistant response for image ID 1750229372 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T12:49:31Z",
+  "patient_id": "P026",
+  "behavior": "sitting",
+  "status": "normal",
+  "note": "The patient is sitting on a chair."
+}
+2025-06-18 14:50:00,198 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:50:00,384 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:50:00,914 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229372 "HTTP/2 200 OK"
+2025-06-18 14:50:00,915 - INFO - Image 1750229372 marked as processed
+2025-06-18 14:50:06,666 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:50:07,994 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:50:09,512 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:50:09,514 - INFO - Created new thread with ID: thread_JgTCcFy6dSCJFGhpPfLDE3Qr for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:10,987 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:50:10,988 - INFO - Uploaded file with ID: file-9evwdpaFbjfCSzfS15D1Vp (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:11,940 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_JgTCcFy6dSCJFGhpPfLDE3Qr/messages "HTTP/1.1 200 OK"
+2025-06-18 14:50:11,941 - INFO - Created message in thread thread_JgTCcFy6dSCJFGhpPfLDE3Qr with image file ID: file-9evwdpaFbjfCSzfS15D1Vp (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:13,903 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_JgTCcFy6dSCJFGhpPfLDE3Qr/runs "HTTP/1.1 200 OK"
+2025-06-18 14:50:13,904 - INFO - Started run with ID: run_GvBYEGB6y283s1bBgEt5k73U for thread thread_JgTCcFy6dSCJFGhpPfLDE3Qr (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:14,462 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_JgTCcFy6dSCJFGhpPfLDE3Qr/runs/run_GvBYEGB6y283s1bBgEt5k73U "HTTP/1.1 200 OK"
+2025-06-18 14:50:16,012 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_JgTCcFy6dSCJFGhpPfLDE3Qr/runs/run_GvBYEGB6y283s1bBgEt5k73U "HTTP/1.1 200 OK"
+2025-06-18 14:50:17,968 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_JgTCcFy6dSCJFGhpPfLDE3Qr/runs/run_GvBYEGB6y283s1bBgEt5k73U "HTTP/1.1 200 OK"
+2025-06-18 14:50:19,639 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_JgTCcFy6dSCJFGhpPfLDE3Qr/runs/run_GvBYEGB6y283s1bBgEt5k73U "HTTP/1.1 200 OK"
+2025-06-18 14:50:19,640 - INFO - Run run_GvBYEGB6y283s1bBgEt5k73U completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:20,665 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_JgTCcFy6dSCJFGhpPfLDE3Qr/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:50:20,666 - INFO - Assistant response for image ID 1750229400 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:49:59Z",
+  "patient_id": "P026",
+  "behavior": "standing",
+  "status": "normal",
+  "note": "The patient is standing."
+}
+2025-06-18 14:50:21,333 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:50:21,722 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:50:22,247 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229400 "HTTP/2 200 OK"
+2025-06-18 14:50:22,248 - INFO - Image 1750229400 marked as processed
+2025-06-18 14:50:27,919 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:50:28,510 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:50:29,727 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:50:29,728 - INFO - Created new thread with ID: thread_rVDJkLgewYMZ1VdUq43URJF5 for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:31,014 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:50:31,023 - INFO - Uploaded file with ID: file-HmgmJsXVbv3nb5LWcEwfk6 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:31,893 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_rVDJkLgewYMZ1VdUq43URJF5/messages "HTTP/1.1 200 OK"
+2025-06-18 14:50:31,894 - INFO - Created message in thread thread_rVDJkLgewYMZ1VdUq43URJF5 with image file ID: file-HmgmJsXVbv3nb5LWcEwfk6 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:33,153 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_rVDJkLgewYMZ1VdUq43URJF5/runs "HTTP/1.1 200 OK"
+2025-06-18 14:50:33,155 - INFO - Started run with ID: run_BS6wyeKV9087LzHeOzMRKc5X for thread thread_rVDJkLgewYMZ1VdUq43URJF5 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:33,715 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_rVDJkLgewYMZ1VdUq43URJF5/runs/run_BS6wyeKV9087LzHeOzMRKc5X "HTTP/1.1 200 OK"
+2025-06-18 14:50:36,184 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_rVDJkLgewYMZ1VdUq43URJF5/runs/run_BS6wyeKV9087LzHeOzMRKc5X "HTTP/1.1 200 OK"
+2025-06-18 14:50:37,909 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_rVDJkLgewYMZ1VdUq43URJF5/runs/run_BS6wyeKV9087LzHeOzMRKc5X "HTTP/1.1 200 OK"
+2025-06-18 14:50:37,912 - INFO - Run run_BS6wyeKV9087LzHeOzMRKc5X completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:39,046 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_rVDJkLgewYMZ1VdUq43URJF5/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:50:39,047 - INFO - Assistant response for image ID 1750229426 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:50:26Z",
+  "patient_id": "P026",
+  "behavior": "standing",
+  "status": "normal",
+  "note": "The patient is standing."
+}
+2025-06-18 14:50:41,796 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:50:42,677 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:50:43,888 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229426 "HTTP/2 200 OK"
+2025-06-18 14:50:43,889 - INFO - Image 1750229426 marked as processed
+2025-06-18 14:50:50,308 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:50:51,498 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:50:53,087 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:50:53,092 - INFO - Created new thread with ID: thread_wdKIwsVA2HkLB92tZjY0uVqS for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:55,423 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:50:55,424 - INFO - Uploaded file with ID: file-RRh8K8BZdUYsXUYj46VCit (Camera: 9A05547PCGF66FD)
+2025-06-18 14:50:57,567 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_wdKIwsVA2HkLB92tZjY0uVqS/messages "HTTP/1.1 200 OK"
+2025-06-18 14:50:57,570 - INFO - Created message in thread thread_wdKIwsVA2HkLB92tZjY0uVqS with image file ID: file-RRh8K8BZdUYsXUYj46VCit (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:00,365 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_wdKIwsVA2HkLB92tZjY0uVqS/runs "HTTP/1.1 200 OK"
+2025-06-18 14:51:00,367 - INFO - Started run with ID: run_PSmGWALsEtRXeRQDyu3AJZiS for thread thread_wdKIwsVA2HkLB92tZjY0uVqS (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:01,212 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_wdKIwsVA2HkLB92tZjY0uVqS/runs/run_PSmGWALsEtRXeRQDyu3AJZiS "HTTP/1.1 200 OK"
+2025-06-18 14:51:02,877 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_wdKIwsVA2HkLB92tZjY0uVqS/runs/run_PSmGWALsEtRXeRQDyu3AJZiS "HTTP/1.1 200 OK"
+2025-06-18 14:51:04,515 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_wdKIwsVA2HkLB92tZjY0uVqS/runs/run_PSmGWALsEtRXeRQDyu3AJZiS "HTTP/1.1 200 OK"
+2025-06-18 14:51:06,180 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_wdKIwsVA2HkLB92tZjY0uVqS/runs/run_PSmGWALsEtRXeRQDyu3AJZiS "HTTP/1.1 200 OK"
+2025-06-18 14:51:06,183 - INFO - Run run_PSmGWALsEtRXeRQDyu3AJZiS completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:06,684 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_wdKIwsVA2HkLB92tZjY0uVqS/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:51:06,686 - INFO - Assistant response for image ID 1750229446 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:50:46Z",
+  "patient_id": "P026",
+  "behavior": "none",
+  "status": "not in the room",
+  "note": "The patient is not present in the hospital room"
+}
+2025-06-18 14:51:07,227 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:51:07,391 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:51:07,545 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229446 "HTTP/2 200 OK"
+2025-06-18 14:51:07,547 - INFO - Image 1750229446 marked as processed
+2025-06-18 14:51:13,348 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:51:14,415 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:51:15,587 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:51:15,588 - INFO - Created new thread with ID: thread_DCZHOFOMwTqfJs2pWXEh3Glr for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:16,464 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:51:16,465 - INFO - Uploaded file with ID: file-WMu8qimnm5e11mHFDNeXpx (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:19,673 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_DCZHOFOMwTqfJs2pWXEh3Glr/messages "HTTP/1.1 200 OK"
+2025-06-18 14:51:19,682 - INFO - Created message in thread thread_DCZHOFOMwTqfJs2pWXEh3Glr with image file ID: file-WMu8qimnm5e11mHFDNeXpx (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:20,860 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_DCZHOFOMwTqfJs2pWXEh3Glr/runs "HTTP/1.1 200 OK"
+2025-06-18 14:51:20,882 - INFO - Started run with ID: run_k3W58PkUuRBHqk5MkyuARS9W for thread thread_DCZHOFOMwTqfJs2pWXEh3Glr (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:22,527 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_DCZHOFOMwTqfJs2pWXEh3Glr/runs/run_k3W58PkUuRBHqk5MkyuARS9W "HTTP/1.1 200 OK"
+2025-06-18 14:51:27,636 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_DCZHOFOMwTqfJs2pWXEh3Glr/runs/run_k3W58PkUuRBHqk5MkyuARS9W "HTTP/1.1 200 OK"
+2025-06-18 14:51:27,638 - INFO - Run run_k3W58PkUuRBHqk5MkyuARS9W completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:28,151 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_DCZHOFOMwTqfJs2pWXEh3Glr/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:51:28,152 - INFO - Assistant response for image ID 1750229467 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:45:06Z",
+  "patient_id": "P026",
+  "behavior": "standing",
+  "status": "normal",
+  "note": "The patient is standing."
+}
+2025-06-18 14:51:28,538 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:51:28,815 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:51:29,276 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229467 "HTTP/2 200 OK"
+2025-06-18 14:51:29,277 - INFO - Image 1750229467 marked as processed
+2025-06-18 14:51:34,632 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:51:35,448 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:51:36,327 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:51:36,349 - INFO - Created new thread with ID: thread_B9jdsScbL1xJupKnJgAO3ay4 for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:38,376 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:51:38,378 - INFO - Uploaded file with ID: file-ANePpwmGGceGqE9itZ6wJU (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:39,857 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_B9jdsScbL1xJupKnJgAO3ay4/messages "HTTP/1.1 200 OK"
+2025-06-18 14:51:39,859 - INFO - Created message in thread thread_B9jdsScbL1xJupKnJgAO3ay4 with image file ID: file-ANePpwmGGceGqE9itZ6wJU (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:41,411 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_B9jdsScbL1xJupKnJgAO3ay4/runs "HTTP/1.1 200 OK"
+2025-06-18 14:51:41,412 - INFO - Started run with ID: run_pXBeFrSJirY9h2VW37txcWeJ for thread thread_B9jdsScbL1xJupKnJgAO3ay4 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:42,462 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_B9jdsScbL1xJupKnJgAO3ay4/runs/run_pXBeFrSJirY9h2VW37txcWeJ "HTTP/1.1 200 OK"
+2025-06-18 14:51:45,011 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_B9jdsScbL1xJupKnJgAO3ay4/runs/run_pXBeFrSJirY9h2VW37txcWeJ "HTTP/1.1 200 OK"
+2025-06-18 14:51:45,013 - INFO - Run run_pXBeFrSJirY9h2VW37txcWeJ completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:51:46,131 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_B9jdsScbL1xJupKnJgAO3ay4/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:51:46,135 - INFO - Assistant response for image ID 1750229492 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:55:32Z",
+  "patient_id": "P026",
+  "behavior": "standing",
+  "status": "normal",
+  "note": "The patient is standing."
+}
+2025-06-18 14:51:50,015 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:51:50,224 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:51:50,407 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229492 "HTTP/2 200 OK"
+2025-06-18 14:51:50,409 - INFO - Image 1750229492 marked as processed
+2025-06-18 14:51:58,383 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:52:05,581 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:52:07,486 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:52:07,488 - INFO - Created new thread with ID: thread_0XWzyVpPWbfa4IpMxEijvqhV for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:08,832 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:52:08,833 - INFO - Uploaded file with ID: file-RRsdP4H6RbFMqHJbvsEwsf (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:09,832 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_0XWzyVpPWbfa4IpMxEijvqhV/messages "HTTP/1.1 200 OK"
+2025-06-18 14:52:09,835 - INFO - Created message in thread thread_0XWzyVpPWbfa4IpMxEijvqhV with image file ID: file-RRsdP4H6RbFMqHJbvsEwsf (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:11,444 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_0XWzyVpPWbfa4IpMxEijvqhV/runs "HTTP/1.1 200 OK"
+2025-06-18 14:52:11,445 - INFO - Started run with ID: run_OydDdMIkLlt0aFyqOlDaktQc for thread thread_0XWzyVpPWbfa4IpMxEijvqhV (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:12,078 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_0XWzyVpPWbfa4IpMxEijvqhV/runs/run_OydDdMIkLlt0aFyqOlDaktQc "HTTP/1.1 200 OK"
+2025-06-18 14:52:13,645 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_0XWzyVpPWbfa4IpMxEijvqhV/runs/run_OydDdMIkLlt0aFyqOlDaktQc "HTTP/1.1 200 OK"
+2025-06-18 14:52:15,343 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_0XWzyVpPWbfa4IpMxEijvqhV/runs/run_OydDdMIkLlt0aFyqOlDaktQc "HTTP/1.1 200 OK"
+2025-06-18 14:52:15,344 - INFO - Run run_OydDdMIkLlt0aFyqOlDaktQc completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:15,957 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_0XWzyVpPWbfa4IpMxEijvqhV/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:52:15,961 - INFO - Assistant response for image ID 1750229511 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:55:51Z",
+  "patient_id": "P026",
+  "behavior": "standing",
+  "status": "normal",
+  "note": "The patient is standing."
+}
+2025-06-18 14:52:17,097 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:52:17,589 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:52:18,131 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229511 "HTTP/2 200 OK"
+2025-06-18 14:52:18,132 - INFO - Image 1750229511 marked as processed
+2025-06-18 14:52:23,636 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:52:25,213 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:52:26,640 - INFO - HTTP Request: POST https://api.openai.com/v1/threads "HTTP/1.1 200 OK"
+2025-06-18 14:52:26,640 - INFO - Created new thread with ID: thread_GKCkZaB3Y9XNOCp42pta9VAF for patient P026 (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:28,150 - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2025-06-18 14:52:28,151 - INFO - Uploaded file with ID: file-DscUwYSRcfjVCiYuNaegRH (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:29,358 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_GKCkZaB3Y9XNOCp42pta9VAF/messages "HTTP/1.1 200 OK"
+2025-06-18 14:52:29,372 - INFO - Created message in thread thread_GKCkZaB3Y9XNOCp42pta9VAF with image file ID: file-DscUwYSRcfjVCiYuNaegRH (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:30,764 - INFO - HTTP Request: POST https://api.openai.com/v1/threads/thread_GKCkZaB3Y9XNOCp42pta9VAF/runs "HTTP/1.1 200 OK"
+2025-06-18 14:52:30,774 - INFO - Started run with ID: run_y0EKDgjZjr4d8a6CEFzypND9 for thread thread_GKCkZaB3Y9XNOCp42pta9VAF (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:31,835 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_GKCkZaB3Y9XNOCp42pta9VAF/runs/run_y0EKDgjZjr4d8a6CEFzypND9 "HTTP/1.1 200 OK"
+2025-06-18 14:52:33,412 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_GKCkZaB3Y9XNOCp42pta9VAF/runs/run_y0EKDgjZjr4d8a6CEFzypND9 "HTTP/1.1 200 OK"
+2025-06-18 14:52:35,054 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_GKCkZaB3Y9XNOCp42pta9VAF/runs/run_y0EKDgjZjr4d8a6CEFzypND9 "HTTP/1.1 200 OK"
+2025-06-18 14:52:35,055 - INFO - Run run_y0EKDgjZjr4d8a6CEFzypND9 completed successfully (Camera: 9A05547PCGF66FD)
+2025-06-18 14:52:35,708 - INFO - HTTP Request: GET https://api.openai.com/v1/threads/thread_GKCkZaB3Y9XNOCp42pta9VAF/messages?limit=1 "HTTP/1.1 200 OK"
+2025-06-18 14:52:35,709 - INFO - Assistant response for image ID 1750229538 (Camera: 9A05547PCGF66FD): {
+  "timestamp": "2025-06-18T14:52:08Z",
+  "patient_id": "P026",
+  "behavior": "sitting",
+  "status": "normal",
+  "note": "The patient is sitting on a chair."
+}
+2025-06-18 14:52:36,689 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id&code=eq.P026 "HTTP/2 200 OK"
+2025-06-18 14:52:37,003 - INFO - HTTP Request: POST https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patient_records "HTTP/2 201 Created"
+2025-06-18 14:52:37,256 - INFO - HTTP Request: PATCH https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?id=eq.1750229538 "HTTP/2 200 OK"
+2025-06-18 14:52:37,257 - INFO - Image 1750229538 marked as processed
+2025-06-18 14:52:43,230 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/images?select=id%2Curl%2Caireaded%2Ccreated_at%2Ccamera_imou_id&camera_imou_id=eq.9A05547PCGF66FD&order=created_at.desc&limit=1 "HTTP/2 200 OK"
+2025-06-18 14:52:44,030 - INFO - HTTP Request: GET https://vackbpaebrwtgcadsqlc.supabase.co/rest/v1/patients?select=patient_id%2Cpathology&code=eq.P026 "HTTP/2 200 OK"

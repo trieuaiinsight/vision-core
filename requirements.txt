@@ -1,0 +1,21 @@
+# Core dependencies for all services
+httpx==0.26
+supabase==2.15.3
+python-dotenv==1.0.0
+
+# AI Analysis dependencies
+openai==1.88.0
+requests==2.31.0
+
+# Video streaming dependencies
+opencv-python==4.8.1.78
+mediapipe==0.10.21
+numpy==1.26.4
+scipy==1.12.0
+
+# Monitoring and system utilities
+psutil==5.9.6
+keyboard==0.13.5
+
+# Additional utilities
+Pillow==10.1.0

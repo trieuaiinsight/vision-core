@@ -92,7 +92,6 @@ def get_rtsp_url_by_camera_imou_id(camera_imou_id):
         logging.error(f"Error getting RTSP URL for camera {camera_imou_id}: {e}")
         return None
 
-
 # Get patient info from database
 def get_patient_info(patient_code):
     try:
@@ -491,9 +490,10 @@ def run_vision_analysis(image_data, image_id, camera_imou_id=None):
             
             if response:
                 print(f"✅ Camera {camera_imou_id} - Saved record with ID: {response.get('id', '')}")
-                if response.get('behavior', '').lower() == "lying" and response.get('status', '').lower() == "normal":
-                    print(f"⚠️ Camera {camera_imou_id} - Patient detected as lying down as normal status. Starting video streaming...")
-                    # Streaming
+                if response.get('behavior', '').lower() == "lying" and response.get('status', '').lower() == "critical":
+                    print(f"⚠️ Camera {camera_imou_id} - Patient detected as lying down. Starting video streaming...")
+                    # Start video streaming using the refactored function - pass both image_id and camera_imou_id
+                    run_video_streaming(image_id, camera_imou_id)
             else:
                 print(f"❌ Camera {camera_imou_id} - Could not save record to database")
             
@@ -612,6 +612,191 @@ def camera_processing_thread(camera_imou_id, room_name):
             print(f"❌ Camera {camera_imou_id} - Error in processing thread: {e}")
             logging.error(f"Error in camera processing thread for {camera_imou_id}: {e}")
             time.sleep(10)  # Wait longer on error before retrying
+
+def run_video_streaming(image_id, camera_imou_id):
+    """
+    Refactored video streaming function that:
+    1. Uses existing camera_imou_id (no redundant Supabase fetch)
+    2. Gets RTSP URL from camera_map
+    3. Prevents multiple sessions for same camera
+    4. Launches streaming in non-blocking thread
+    5. Pauses AI analysis for that camera while streaming
+    """
+    global active_video_streams, paused_cameras
+    
+    try:
+        print(f"🎬 BEFORE starting video streaming worker - image_id: {image_id}, camera_imou_id: {camera_imou_id}")
+        logging.info(f"BEFORE starting video streaming worker - image_id: {image_id}, camera_imou_id: {camera_imou_id}")
+        
+        # Validate inputs
+        if not camera_imou_id:
+            print(f"❌ No camera_imou_id provided for video streaming")
+            logging.error(f"No camera_imou_id provided for video streaming")
+            return
+        
+        # Get RTSP URL from camera_map
+        rtsp_url = get_rtsp_url_by_camera_imou_id(camera_imou_id)
+        if not rtsp_url:
+            print(f"❌ Skipping video streaming - no RTSP URL found for camera: {camera_imou_id}")
+            logging.error(f"Skipping video streaming - no RTSP URL found for camera: {camera_imou_id}")
+            return
+        
+        # Check if video streaming is already running for this camera
+        if camera_imou_id in active_video_streams:
+            print(f"⚠️ Video streaming already active for camera {camera_imou_id}, skipping new session")
+            logging.warning(f"Video streaming already active for camera {camera_imou_id}, skipping new session")
+            return
+        
+        print(f"🎥 Starting video streaming for camera {camera_imou_id} with image_id {image_id}")
+        logging.info(f"Starting video streaming for camera {camera_imou_id} with image_id {image_id}")
+        
+        # Pause AI analysis for this camera
+        paused_cameras.add(camera_imou_id)
+        print(f"⏸️ Paused AI analysis for camera {camera_imou_id}")
+        logging.info(f"Paused AI analysis for camera {camera_imou_id}")
+        
+        # Create and start the video streaming thread
+        streaming_thread = threading.Thread(
+            target=video_streaming_worker,
+            args=(camera_imou_id, rtsp_url, image_id),
+            daemon=True,
+            name=f"VideoStream-{camera_imou_id}"
+        )
+        
+        # Mark this camera as having an active stream
+        active_video_streams[camera_imou_id] = {
+            'thread': streaming_thread,
+            'image_id': image_id,
+            'rtsp_url': rtsp_url,
+            'start_time': datetime.now()
+        }
+        
+        print(f"🚀 ABOUT TO START video streaming thread for camera {camera_imou_id}")
+        logging.info(f"ABOUT TO START video streaming thread for camera {camera_imou_id}")
+        
+        streaming_thread.start()
+        
+        print(f"✅ Video streaming thread STARTED for camera {camera_imou_id}")
+        logging.info(f"Video streaming thread STARTED for camera {camera_imou_id}")
+        
+    except Exception as e:
+        print(f"❌ Error in run_video_streaming for image_id {image_id}: {e}")
+        logging.error(f"Error in run_video_streaming for image_id {image_id}: {e}")
+        # Clean up on error
+        if camera_imou_id:
+            paused_cameras.discard(camera_imou_id)
+            active_video_streams.pop(camera_imou_id, None)
+
+def video_streaming_worker(camera_imou_id, rtsp_url, image_id):
+    """
+    Worker function that runs the actual video streaming process
+    """
+    global active_video_streams, paused_cameras
+    
+    try:
+        print(f"🎬 Video streaming worker STARTED for camera {camera_imou_id}")
+        logging.info(f"Video streaming worker STARTED for camera {camera_imou_id}")
+        
+        # Check for required modules
+        try:
+            import importlib
+            importlib.import_module('mediapipe')
+            importlib.import_module('cv2')
+            print(f"✅ Required modules (mediapipe, cv2) are available")
+        except ImportError as e:
+            print(f"\n❌ Missing required module: {e}")
+            print("Please install the required dependencies:")
+            print("pip install mediapipe opencv-python")
+            return
+        
+        # Get current directory and video_streaming.py path
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        video_streaming_path = os.path.join(current_dir, 'video_streaming.py')
+        
+        print(f"📁 Current directory: {current_dir}")
+        print(f"📄 Video streaming path: {video_streaming_path}")
+        print(f"📋 File exists: {os.path.exists(video_streaming_path)}")
+        print(f"🐍 Python executable: {sys.executable}")
+        
+        if not os.path.exists(video_streaming_path):
+            print(f"❌ video_streaming.py not found at: {video_streaming_path}")
+            logging.error(f"video_streaming.py not found at: {video_streaming_path}")
+            return
+        
+        # Prepare command with proper arguments using sys.executable
+        command = [
+            sys.executable,  # Use same Python interpreter as current script
+            video_streaming_path,
+            rtsp_url,
+            '--image_id', str(image_id)
+        ]
+        
+        print(f"🚀 EXECUTING command: {' '.join(command)}")
+        logging.info(f"EXECUTING command: {' '.join(command)}")
+        
+        # Start the video streaming process with proper encoding handling
+        print(f"📋 About to call subprocess.Popen...")
+        
+        # Set environment variables to handle Unicode properly
+        env = os.environ.copy()
+        env['PYTHONIOENCODING'] = 'utf-8'
+        
+        process = subprocess.Popen(
+            command,
+            cwd=current_dir,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            encoding='utf-8',  # Explicitly set UTF-8 encoding
+            errors='replace',  # Replace invalid characters instead of failing
+            bufsize=1,
+            universal_newlines=True,
+            env=env  # Pass environment with UTF-8 encoding
+        )
+        
+        print(f"✅ subprocess.Popen called successfully, PID: {process.pid}")
+        logging.info(f"subprocess.Popen called successfully, PID: {process.pid}")
+        
+        # Monitor the process and wait for it to complete
+        try:
+            print(f"📹 Monitoring video streaming process for camera {camera_imou_id}...")
+            # Read output in real-time with safe Unicode handling
+            while True:
+                output = process.stdout.readline()
+                if output == '' and process.poll() is not None:
+                    break
+                if output:
+                    # Strip Unicode characters that might cause encoding issues
+                    safe_output = output.strip()
+                    # Remove or replace problematic Unicode characters
+                    safe_output = safe_output.encode('ascii', 'ignore').decode('ascii')
+                    if safe_output:  # Only print if there's content after cleaning
+                        print(f"📹 Camera {camera_imou_id}: {safe_output}")
+            
+            # Wait for process to complete
+            return_code = process.wait()
+            print(f"🎬 Video streaming ended for camera {camera_imou_id} with return code: {return_code}")
+            logging.info(f"Video streaming ended for camera {camera_imou_id} with return code: {return_code}")
+            
+        except Exception as e:
+            print(f"❌ Error monitoring video streaming process for camera {camera_imou_id}: {e}")
+            logging.error(f"Error monitoring video streaming process for camera {camera_imou_id}: {e}")
+            process.terminate()
+            
+    except Exception as e:
+        print(f"❌ Error in video streaming worker for camera {camera_imou_id}: {e}")
+        logging.error(f"Error in video streaming worker for camera {camera_imou_id}: {e}")
+        import traceback
+        print(f"📋 Full traceback: {traceback.format_exc()}")
+        logging.error(f"Full traceback: {traceback.format_exc()}")
+        
+    finally:
+        # Clean up: Resume AI analysis and remove from active streams
+        paused_cameras.discard(camera_imou_id)
+        active_video_streams.pop(camera_imou_id, None)
+        print(f"▶️ Resumed AI analysis for camera {camera_imou_id}")
+        logging.info(f"Video streaming ended and AI analysis resumed for camera {camera_imou_id}")
+
 
 def process_latest_image(last_processed_id=None):
     """

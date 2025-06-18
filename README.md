@@ -26,3 +26,5 @@ Hope u like it. In this demontration because we only have more than 30hrs so:
 1. I'm using imou's api for capturing (fast)
 2. Using LLM models (OpenAI Assistant to make it fast - we gonna use Claude soon :P )
 3. limitation about network. I have to use 4g for the camera network, that's why the connection a bit slow for supabase data sync up
+
+To see a result please checkout this source code and build apk (or just using a emulator): https://github.com/trieuaiinsight/vision-mobile-app

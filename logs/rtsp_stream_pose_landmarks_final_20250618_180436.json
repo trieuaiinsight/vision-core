@@ -1,0 +1,13 @@
+{
+  "stream_url": "rtsp://admin:Khoa123456@192.168.3.91:554/cam/realmonitor?channel=1&subtype=1",
+  "total_frames": 226,
+  "processed_frames": 0,
+  "processing_rate": "Every 2 frames",
+  "smoothing_enabled": true,
+  "detection_confidence": 0.5,
+  "tracking_confidence": 0.5,
+  "avg_processing_time_ms": 21.63384955752213,
+  "landmarks": [],
+  "image_id": "1750176801",
+  "shutdown_reason": "graceful"
+}

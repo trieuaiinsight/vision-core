@@ -17,3 +17,7 @@
 [20250618_144823] Convulsion suspected between frames 260 - 728. Saved to logs/alert_window_20250618_144823.json
 [20250618_144825] Convulsion suspected between frames 268 - 730. Saved to logs/alert_window_20250618_144825.json
 [20250618_144829] Convulsion suspected between frames 420 - 856. Saved to logs/alert_window_20250618_144829.json
+[20250618_183947] Convulsion suspected between frames 148 - 432. Saved to logs/alert_window_20250618_183947.json
+[20250618_183948] Convulsion suspected between frames 154 - 434. Saved to logs/alert_window_20250618_183948.json
+[20250618_183949] Convulsion suspected between frames 192 - 436. Saved to logs/alert_window_20250618_183949.json
+[20250618_183949] Convulsion suspected between frames 196 - 438. Saved to logs/alert_window_20250618_183949.json

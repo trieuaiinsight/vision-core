@@ -1,399 +1,361 @@
 #!/usr/bin/env python3
 """
-Master script to run all services simultaneously:
-1. camera_cronjob.py - Captures snapshots from cameras
-2. analyze_image.py - AI analysis of captured images
-3. video_streaming.py - Available for motion detection when triggered
-
-This script manages all processes and handles graceful shutdown.
+Camera Snapshot Cronjob - Pure Python Background Service
+No HTTP server, just runs scheduled tasks like original Node.js cron jobs
 """
 
-import os
-import sys
+import asyncio
 import json
+import os
 import time
+import hashlib
+import random
+import string
 import signal
-import subprocess
+import sys
 import threading
 from datetime import datetime
-from pathlib import Path
-import psutil
+from typing import Dict, Any
+
+import httpx
+from supabase import create_client, Client
+from dotenv import load_dotenv
 
 # Load environment variables
+load_dotenv()
+
+# Parse camera map from environment
 try:
-    from dotenv import load_dotenv
-    load_dotenv()
-    print("✅ Environment variables loaded from .env file")
-except ImportError:
-    print("⚠️ python-dotenv not available, using system environment")
+    CAMERA_MAP = json.loads(os.getenv('CAMERA_MAP', '{}'))
+    if not CAMERA_MAP:
+        print("❌ CAMERA_MAP is empty or not found in environment variables")
+        sys.exit(1)
+except json.JSONDecodeError:
+    print("❌ Error parsing CAMERA_MAP from environment variables")
+    sys.exit(1)
 
-# Global variables for process management
-processes = {}
+# Supabase setup
+supabase_url = os.getenv('SUPABASE_URL')
+supabase_key = os.getenv('SUPABASE_KEY')
+
+if not supabase_url or not supabase_key:
+    print("❌ SUPABASE_URL and SUPABASE_KEY must be set in environment variables")
+    sys.exit(1)
+
+print(supabase_url, supabase_key)
+supabase: Client = create_client(supabase_url, supabase_key)
+
+# Configuration object
+config = {
+    'url': os.getenv('IMOU_API_URL'),
+    'app_id': os.getenv('IMOU_APP_ID'),
+    'app_secret': os.getenv('IMOU_APP_SECRET'),
+    'table_name': os.getenv('POSTGRES_TABLE_NAME', 'images')
+}
+
+# Validate required configuration
+required_config = ['url', 'app_id', 'app_secret']
+missing_config = [key for key in required_config if not config[key]]
+if missing_config:
+    print(f"❌ Missing required environment variables: {', '.join(missing_config)}")
+    sys.exit(1)
+
+# Global control variable
 running = True
-shutdown_requested = False
 
-class ServiceManager:
-    """Manages multiple Python services"""
-    
-    def __init__(self):
-        self.services = {}
-        self.monitoring_thread = None
-        
-    def add_service(self, name, script_path, description, args=None):
-        """Add a service to be managed"""
-        self.services[name] = {
-            'script_path': script_path,
-            'description': description,
-            'args': args or [],
-            'process': None,
-            'start_time': None,
-            'restart_count': 0,
-            'status': 'stopped'
-        }
-    
-    def start_service(self, name):
-        """Start a specific service"""
-        if name not in self.services:
-            print(f"❌ Service '{name}' not found")
-            return False
-            
-        service = self.services[name]
-        
-        if service['process'] and service['process'].poll() is None:
-            print(f"⚠️ Service '{name}' is already running")
-            return True
-            
-        try:
-            # Prepare command
-            command = [sys.executable, service['script_path']] + service['args']
-            
-            print(f"🚀 Starting {name}: {service['description']}")
-            print(f"   Command: {' '.join(command)}")
-            
-            # Start process
-            process = subprocess.Popen(
-                command,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                text=True,
-                bufsize=1,
-                universal_newlines=True
-            )
-            
-            service['process'] = process
-            service['start_time'] = datetime.now()
-            service['status'] = 'running'
-            
-            print(f"✅ {name} started with PID: {process.pid}")
-            return True
-            
-        except Exception as e:
-            print(f"❌ Failed to start {name}: {e}")
-            service['status'] = 'failed'
-            return False
-    
-    def stop_service(self, name):
-        """Stop a specific service"""
-        if name not in self.services:
-            return False
-            
-        service = self.services[name]
-        process = service['process']
-        
-        if not process or process.poll() is not None:
-            service['status'] = 'stopped'
-            return True
-            
-        try:
-            print(f"🛑 Stopping {name}...")
-            
-            # Try graceful shutdown first
-            process.terminate()
-            
-            # Wait for graceful shutdown
-            try:
-                process.wait(timeout=5)
-                print(f"✅ {name} stopped gracefully")
-            except subprocess.TimeoutExpired:
-                print(f"⚠️ {name} didn't stop gracefully, forcing...")
-                process.kill()
-                process.wait()
-                print(f"✅ {name} forced to stop")
-                
-            service['status'] = 'stopped'
-            service['process'] = None
-            return True
-            
-        except Exception as e:
-            print(f"❌ Error stopping {name}: {e}")
-            return False
-    
-    def start_all_services(self):
-        """Start all registered services"""
-        print("🚀 Starting all services...")
-        success_count = 0
-        
-        for name in self.services:
-            if self.start_service(name):
-                success_count += 1
-                time.sleep(2)  # Stagger startup
-        
-        print(f"✅ Started {success_count}/{len(self.services)} services")
-        return success_count == len(self.services)
-    
-    def stop_all_services(self):
-        """Stop all running services"""
-        print("🛑 Stopping all services...")
-        
-        for name in self.services:
-            self.stop_service(name)
-    
-    def get_service_status(self, name):
-        """Get status of a specific service"""
-        if name not in self.services:
-            return None
-            
-        service = self.services[name]
-        process = service['process']
-        
-        if not process:
-            return 'stopped'
-        
-        if process.poll() is None:
-            return 'running'
-        else:
-            service['status'] = 'crashed'
-            return 'crashed'
-    
-    def monitor_services(self):
-        """Monitor services and restart if needed"""
-        global running
-        
-        print("👁️ Starting service monitoring...")
-        
-        while running and not shutdown_requested:
-            try:
-                for name, service in self.services.items():
-                    status = self.get_service_status(name)
-                    
-                    if status == 'crashed' and service['restart_count'] < 3:
-                        print(f"💥 Service '{name}' crashed, restarting...")
-                        service['restart_count'] += 1
-                        self.start_service(name)
-                        time.sleep(5)
-                
-                # Print status every 60 seconds
-                time.sleep(60)
-                self.print_status()
-                
-            except Exception as e:
-                print(f"❌ Error in service monitoring: {e}")
-                time.sleep(10)
-        
-        print("👁️ Service monitoring stopped")
-    
-    def print_status(self):
-        """Print current status of all services"""
-        print("\n" + "="*60)
-        print(f"📊 Service Status - {datetime.now().strftime('%H:%M:%S')}")
-        print("="*60)
-        
-        for name, service in self.services.items():
-            status = self.get_service_status(name)
-            process = service['process']
-            
-            if status == 'running' and process:
-                # Get memory usage
-                try:
-                    proc = psutil.Process(process.pid)
-                    memory_mb = proc.memory_info().rss / 1024 / 1024
-                    cpu_percent = proc.cpu_percent()
-                    uptime = datetime.now() - service['start_time']
-                    
-                    print(f"✅ {name:20} | PID: {process.pid:6} | Memory: {memory_mb:6.1f}MB | CPU: {cpu_percent:5.1f}% | Uptime: {str(uptime).split('.')[0]}")
-                except:
-                    print(f"✅ {name:20} | PID: {process.pid:6} | Status: Running")
-            else:
-                print(f"❌ {name:20} | Status: {status}")
-        
-        print("="*60 + "\n")
+# Helper functions
+def get_time() -> Dict[str, Any]:
+    """Get current timestamp in both Unix and ISO format"""
+    now = datetime.now()
+    return {
+        'time_stamp': int(now.timestamp()),
+        'iso_time_stamp': now.isoformat()
+    }
 
-def validate_environment():
-    """Validate required environment variables and files"""
-    print("🔍 Validating environment...")
+def generate_nonce() -> str:
+    """Generate a random nonce string"""
+    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=10))
+
+def calc_sign(timestamp: int, nonce: str, app_secret: str) -> str:
+    """Calculate MD5 signature for API authentication"""
+    sign_string = f"time:{timestamp},nonce:{nonce},appSecret:{app_secret}"
+    return hashlib.md5(sign_string.encode()).hexdigest()
+
+def generate_id() -> int:
+    """Generate a random ID between 1 and 50"""
+    return random.randint(1, 50)
+
+def prepare_system_params() -> Dict[str, Any]:
+    """Prepare common system parameters for API requests"""
+    time_data = get_time()
+    nonce = generate_nonce()
+    sign = calc_sign(time_data['time_stamp'], nonce, config['app_secret'])
+    request_id = generate_id()
     
-    # Check required files
-    required_files = [
-        'camera_cronjob.py',
-        'analyze_image.py', 
-        'video_streaming.py'
-    ]
+    return {
+        'time': time_data['time_stamp'],
+        'nonce': nonce,
+        'sign': sign,
+        'id': request_id
+    }
+
+# API Functions
+async def get_access_token() -> str:
+    """Get access token from IMOU API"""
+    params = prepare_system_params()
     
-    missing_files = []
-    for file in required_files:
-        if not os.path.exists(file):
-            missing_files.append(file)
+    request_body = {
+        'system': {
+            'ver': '1.0',
+            'sign': params['sign'],
+            'appId': config['app_id'],
+            'time': params['time'],
+            'nonce': params['nonce']
+        },
+        'params': {},
+        'id': params['id']
+    }
     
-    if missing_files:
-        print("❌ Missing required files:")
-        for file in missing_files:
-            print(f"   - {file}")
-        return False
-    
-    # Check required environment variables
-    required_vars = [
-        'SUPABASE_URL',
-        'SUPABASE_KEY', 
-        'IMOU_API_URL',
-        'IMOU_APP_ID',
-        'IMOU_APP_SECRET',
-        'CAMERA_MAP',
-        'OPENAI_API_KEY'
-    ]
-    
-    missing_vars = []
-    for var in required_vars:
-        if not os.getenv(var):
-            missing_vars.append(var)
-    
-    if missing_vars:
-        print("❌ Missing required environment variables:")
-        for var in missing_vars:
-            print(f"   - {var}")
-        return False
-    
-    # Validate CAMERA_MAP
     try:
-        camera_map = json.loads(os.getenv('CAMERA_MAP', '{}'))
-        if not camera_map:
-            print("⚠️ WARNING: CAMERA_MAP is empty")
-        else:
-            print(f"✅ Found {len(camera_map)} cameras in CAMERA_MAP")
-    except json.JSONDecodeError:
-        print("❌ CAMERA_MAP is not valid JSON")
-        return False
-    
-    print("✅ Environment validation passed")
-    return True
-
-def check_dependencies():
-    """Check if required Python packages are installed"""
-    print("📦 Checking dependencies...")
-    
-    required_packages = [
-        'httpx', 'supabase', 'dotenv', 'openai',
-        'requests', 'cv2', 'mediapipe', 'numpy', 'scipy'
-    ]
-    
-    missing_packages = []
-    
-    for package in required_packages:
-        try:
-            if package == 'cv2':
-                import cv2
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(f"{config['url']}/accessToken", json=request_body)
+            response.raise_for_status()
+            
+            data = response.json()
+            if data and data.get('result', {}).get('code') == '0':
+                return data['result']['data']['accessToken']
             else:
-                __import__(package.replace('-', '_'))
-        except ImportError:
-            missing_packages.append(package)
-    
-    if missing_packages:
-        print("❌ Missing required packages:")
-        for package in missing_packages:
-            print(f"   - {package}")
-        print("\n💡 Install missing packages with:")
-        print("   pip install -r requirements_full.txt")
-        return False
-    
-    print("✅ All dependencies are available")
-    return True
+                raise Exception(f"Failed to get access token: {json.dumps(data)}")
+                
+    except Exception as e:
+        print(f"❌ Error getting access token: {e}")
+        raise e
 
-def signal_handler(signum, frame):
-    """Handle shutdown signals"""
-    global running, shutdown_requested
-    print(f"\n🛑 Received signal {signum}. Initiating graceful shutdown...")
-    running = False
-    shutdown_requested = True
+async def get_snapshot(access_token: str, device_id: str) -> Dict[str, Any]:
+    """Get device snapshot from IMOU API"""
+    params = prepare_system_params()
+    
+    request_body = {
+        'system': {
+            'ver': '1.0',
+            'sign': params['sign'],
+            'appId': config['app_id'],
+            'time': params['time'],
+            'nonce': params['nonce']
+        },
+        'params': {
+            'token': access_token,
+            'deviceId': device_id,
+            'channelId': '0'
+        },
+        'id': params['id']
+    }
+    
+    try:
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(f"{config['url']}/setDeviceSnapEnhanced", json=request_body)
+            response.raise_for_status()
+            
+            data = response.json()
+            if data and data.get('result', {}).get('code') == '0':
+                return data['result']['data']
+            else:
+                raise Exception(f"Failed to get device snapshot: {json.dumps(data)}")
+                
+    except Exception as e:
+        print(f"❌ Error getting device snapshot: {e}")
+        raise e
 
-def main():
-    """Main function"""
+async def initialize_database() -> None:
+    """Initialize and verify database tables"""
+    try:
+        print("🔍 Verifying database tables...")
+        
+        # Check images table
+        try:
+            response = supabase.table(config['table_name']).select('id').limit(1).execute()
+            print(f"✅ TABLE {config['table_name']} verified successfully")
+        except Exception as e:
+            if 'PGRST116' in str(e):
+                print(f"❌ Table {config['table_name']} does not exist. Please create it in Supabase dashboard.")
+            else:
+                raise e
+        
+        # Check patients table
+        try:
+            response = supabase.table('patients').select('patient_id').limit(1).execute()
+            print("✅ TABLE patients verified successfully")
+        except Exception as e:
+            if 'PGRST116' in str(e):
+                print("❌ Table patients does not exist. Please create it in Supabase dashboard.")
+            else:
+                raise e
+        
+        # Check patient_records table
+        try:
+            response = supabase.table('patient_records').select('id').limit(1).execute()
+            print("✅ TABLE patient_records verified successfully")
+        except Exception as e:
+            if 'PGRST116' in str(e):
+                print("❌ Table patient_records does not exist. Please create it in Supabase dashboard.")
+            else:
+                raise e
+        
+        print("✅ Database verification completed")
+        
+    except Exception as e:
+        print(f"❌ Error initializing database: {e}")
+        raise e
+
+async def process_snapshot(device_id: str, room_name: str) -> None:
+    """Main function to process camera snapshot"""
+    try:
+        print(f"📸 Processing snapshot for {room_name} (camera: {device_id})")
+        
+        # Step 1: Get access token
+        access_token = await get_access_token()
+        
+        # Step 2: Get device snapshot
+        snapshot = await get_snapshot(access_token, device_id)
+        
+        # Step 3: Save to Supabase
+        now = get_time()
+        data = {
+            'id': now['time_stamp'],
+            'url': snapshot.get('url'),
+            'created_at': now['iso_time_stamp'],
+            'camera_imou_id': device_id
+        }
+        
+        response = supabase.table(config['table_name']).insert(data).execute()
+        
+        if hasattr(response, 'error') and response.error:
+            raise Exception(f"Supabase error: {response.error}")
+        
+        print(f"✅ Snapshot saved for {room_name}: {snapshot.get('url')}")
+        
+    except Exception as e:
+        print(f"❌ Error processing snapshot for {room_name}: {e}")
+
+# Async wrapper for sync context
+def run_async_task(coro):
+    """Helper to run async tasks in sync context"""
+    try:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        return loop.run_until_complete(coro)
+    finally:
+        loop.close()
+
+# Scheduled job functions
+def room2_snapshot_job():
+    """Scheduled job for room2 camera"""
+    if "room2" in CAMERA_MAP and "imou" in CAMERA_MAP["room2"]:
+        device_id = CAMERA_MAP["room2"]["imou"]
+        run_async_task(process_snapshot(device_id, "room2"))
+    else:
+        print("❌ Room2 camera configuration not found in CAMERA_MAP")
+
+def room3_snapshot_job():
+    """Scheduled job for room3 camera"""
+    if "room3" in CAMERA_MAP and "imou" in CAMERA_MAP["room3"]:
+        device_id = CAMERA_MAP["room3"]["imou"]
+        run_async_task(process_snapshot(device_id, "room3"))
+    else:
+        print("❌ Room3 camera configuration not found in CAMERA_MAP")
+
+# Simple cron-like scheduler
+def cron_scheduler():
+    """Simple cron scheduler - runs jobs at specified intervals"""
     global running
     
-    print("🚀 Multi-Service Camera System Manager")
-    print("="*70)
+    print("⏰ Starting cron scheduler...")
+    last_room2_time = 0
+    last_room3_time = 0
     
-    # Validate environment and dependencies
-    if not validate_environment():
-        sys.exit(1)
-    
-    if not check_dependencies():
-        sys.exit(1)
-    
-    # Setup signal handlers
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
-    
-    # Create service manager
-    manager = ServiceManager()
-    
-    # Register services
-    manager.add_service(
-        'camera_cronjob',
-        'camera_cronjob.py',
-        'Camera Snapshot Cronjob - Captures images from cameras'
-    )
-    
-    manager.add_service(
-        'analyze_image',
-        'analyze_image.py', 
-        'AI Image Analysis - Processes captured images with OpenAI'
-    )
-    
-    # Note: video_streaming.py is managed by analyze_image.py, not started directly
-    print("📝 Services configured:")
-    print("   🔄 camera_cronjob.py - Captures snapshots every 5 seconds")
-    print("   🤖 analyze_image.py - AI analysis of captured images")
-    print("   🎥 video_streaming.py - Triggered automatically by AI analysis")
-    print()
+    while running:
+        current_time = time.time()
+        
+        try:
+            # Room2 every 5 seconds
+            if current_time - last_room2_time >= 5:
+                print(f"🔄 [{datetime.now().strftime('%H:%M:%S')}] Running room2 snapshot job...")
+                room2_snapshot_job()
+                last_room2_time = current_time
+            
+            # Room3 every 5 seconds (offset by 2.5 seconds to avoid conflicts)
+            if current_time - last_room3_time >= 5 and (current_time % 10) >= 2.5:
+                print(f"🔄 [{datetime.now().strftime('%H:%M:%S')}] Running room3 snapshot job...")
+                room3_snapshot_job()
+                last_room3_time = current_time
+            
+        except Exception as e:
+            print(f"❌ Error in scheduler: {e}")
+        
+        # Sleep for 500ms to avoid high CPU usage
+        time.sleep(0.5)
+
+# Signal handlers for graceful shutdown
+def signal_handler(signum, frame):
+    """Handle shutdown signals"""
+    global running
+    print(f"\n🛑 Received signal {signum}. Shutting down gracefully...")
+    running = False
+    print("✅ Shutdown complete")
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
+
+# Main function
+async def main():
+    """Main application function"""
+    print("🚀 Camera Snapshot Cronjob Service")
+    print("=" * 50)
     
     try:
-        # Start all services
-        if not manager.start_all_services():
-            print("❌ Failed to start some services")
-            sys.exit(1)
+        # Test database connection
+        print("🔍 Testing database connection...")
+        response = supabase.table(config['table_name']).select('id').limit(1).execute()
         
-        print("✅ All services started successfully!")
-        print("\n📊 System Overview:")
-        print("   • Camera snapshots will be captured every 5 seconds")
-        print("   • AI will analyze new images every 5 seconds") 
-        print("   • Video streaming will auto-trigger on 'lying' behavior detection")
-        print("   • Press Ctrl+C to stop all services")
-        print("\n🔄 Starting monitoring loop...")
-        print("="*70)
+        if hasattr(response, 'error') and response.error:
+            raise Exception(f"Database connection failed: {response.error}")
         
-        # Start monitoring in a separate thread
-        monitor_thread = threading.Thread(
-            target=manager.monitor_services,
-            daemon=True
-        )
-        monitor_thread.start()
+        print("✅ Successfully connected to Supabase")
         
-        # Print initial status
-        time.sleep(3)
-        manager.print_status()
+        # Initialize database
+        await initialize_database()
         
-        # Keep main thread alive
-        while running and not shutdown_requested:
-            time.sleep(1)
+        print(f"\n📷 Camera configuration: {len(CAMERA_MAP)} cameras found")
+        for room, config_data in CAMERA_MAP.items():
+            print(f"   📹 {room}: {config_data.get('imou', 'No IMOU ID')}")
         
-    except KeyboardInterrupt:
-        print("\n🛑 Keyboard interrupt received")
+        print(f"\n⏰ Schedule configuration:")
+        print(f"   📸 Room2: Every 5 seconds")
+        print(f"   📸 Room3: Every 5 seconds (offset)")
+        print(f"\n🛑 Press Ctrl+C to stop")
+        print("=" * 50)
+        
+        return True
+        
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
-    finally:
-        print("\n🔄 Shutting down all services...")
-        manager.stop_all_services()
-        print("✅ All services stopped")
-        print("👋 Goodbye!")
+        print(f"❌ Failed to initialize: {e}")
+        return False
 
 if __name__ == "__main__":
-    main()
+    try:
+        # Initialize application
+        success = run_async_task(main())
+        
+        if success:
+            # Start the cron scheduler
+            cron_scheduler()
+        else:
+            print("❌ Failed to start application")
+            sys.exit(1)
+            
+    except KeyboardInterrupt:
+        print("\n🛑 Service stopped by user")
+    except Exception as e:
+        print(f"❌ Application error: {e}")
+        sys.exit(1)
